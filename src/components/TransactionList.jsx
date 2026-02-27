@@ -5,7 +5,8 @@ function TransactionList() {
   const { transactions, addTransaction } = useBudget()
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}
+    className='transaction-list'>
       <table>
         <thead>
           <tr>

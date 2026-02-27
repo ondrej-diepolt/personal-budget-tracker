@@ -1,42 +1,108 @@
+/* === RESET === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === LAYOUT === */
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f7f4ef;
+  color: #2c2a26;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* === HEADER === */
+header {
+  background-color: #faf8f4;
+  color: #2c2a26;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e8e3db;
+  box-shadow: 0 1px 4px rgba(44, 42, 38, 0.06);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #b5451b;
 }
 
-.card {
-  padding: 2em;
+header span {
+  font-size: 0.9rem;
+  color: #8c8880;
 }
 
-.read-the-docs {
-  color: #888;
+/* === TRANSACTION LIST === */
+.transaction-list {
+  max-width: 720px;
+  margin: 2rem auto;
+  background-color: #faf8f4;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(44, 42, 38, 0.08);
 }
+
+.transaction-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-list th {
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8c8880;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 0.5rem 0.75rem;
+}
+
+.transaction-list td {
+  padding: 0.4rem 0.5rem;
+  border-top: 1px solid #e8e3db;
+}
+
+.transaction-list input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #2c2a26;
+  width: 100%;
+}
+
+.transaction-list input:focus {
+  border-bottom: 1px solid #b5451b;
+
+  
+}
+
+.transaction-list input[type="number"]::-webkit-inner-spin-button,
+.transaction-list input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.transaction-list input[type="number"] {
+  -moz-appearance: textfield;
+}
+.amount-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.transaction-list button[type="button"]:last-of-type {
+  display: block;
+  margin: 1rem auto 0;

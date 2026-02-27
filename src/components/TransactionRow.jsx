@@ -1,13 +1,10 @@
-import { useRef } from 'react'
 import { useBudget } from '../context/BudgetContext'
 
 function AmountInput({ value, onChange }) {
-  const inputRef = useRef(null)
 
   return (
     <span className="amount-cell">
       <input
-        ref={inputRef}
         type="number"
         min="0"
         max="99999999"
