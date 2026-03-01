@@ -2,19 +2,13 @@ import { useState } from "react";
 
 export function useTransactions() {
   const [transactions, setTransactions] = useState([
-    { id: 1, type: "income", name: "Wage", category: "Other", amount: 0 },
-    { id: 2, type: "expense", name: "Rent", category: "Other", amount: 0 },
-    { id: 3, type: "expense", name: "Energy", category: "Other", amount: 0 },
-    { id: 4, type: "expense", name: "Groceries", category: "Other", amount: 0 },
-    { id: 5, type: "expense", name: "Fuel", category: "Other", amount: 0 },
-    { id: 6, type: "expense", name: "Clothing", category: "Other", amount: 0 },
-    {
-      id: 7,
-      type: "expense",
-      name: "Subscriptions",
-      category: "Other",
-      amount: 0,
-    },
+    { id: 1, type: "Income", name: "Wage", category: "Other", amount: 0 },
+    { id: 2, type: "Expense", name: "Rent", category: "Other", amount: 0 },
+    { id: 3, type: "Expense", name: "Energy", category: "Other", amount: 0 },
+    { id: 4, type: "Expense", name: "Groceries", category: "Other", amount: 0 },
+    { id: 5, type: "Expense", name: "Fuel", category: "Other", amount: 0 },
+    { id: 6, type: "Expense", name: "Clothing", category: "Other", amount: 0 },
+    {id: 7,type: "Expense",name: "Subscriptions",category: "Other",amount: 0,},
   ]);
 
   function removeTransaction(id) {
@@ -37,8 +31,8 @@ export function useTransactions() {
       ...prev,
       {
         id: newId,
-        type: "expense",
-        name: "Mew",
+        type: "Expense",
+        name: "New",
         category: "Other",
         amount: 0,
       },

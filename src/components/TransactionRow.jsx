@@ -42,8 +42,8 @@ function NameInput({ value, onChange }) {
 function TypeToggle({ value, onChange }) {
   return (
     <span
-      className={value === 'expense' ? 'type-expense' : 'type-income'}
-      onClick={() => onChange(value === 'expense' ? 'income' : 'expense')}
+      className={value === 'Expense' ? 'type-expense' : 'type-income'}
+      onClick={() => onChange(value === 'Expense' ? 'Income' : 'Expense')}
       style={{ cursor: 'pointer' }}
     >
       {value}
