@@ -1,6 +1,6 @@
 function Header() {
     const now = new Date();
-    const month = now.toLocaleString('cs-CZ', {day : '2-digit',month: 'long', year: 'numeric' })
+    const month = now.toLocaleString('en-US', {day : '2-digit',month: 'long', year: 'numeric' })
 
     return (
         <header>

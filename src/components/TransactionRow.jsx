@@ -1,4 +1,5 @@
 import { useBudget } from '../context/BudgetContext'
+import { CATEGORIES } from '../constants/categories'
 
 function AmountInput({ value, onChange }) {
 
@@ -49,6 +50,16 @@ function TypeToggle({ value, onChange }) {
   )
 }
 
+function CategoryToggle({ value, onChange }) {
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      {CATEGORIES.map((cat) => (
+        <option key={cat} value={cat}>{cat}</option>
+      ))}
+    </select>
+  )
+}
+
 function TransactionRow({ transaction }) {
   const { updateTransaction, removeTransaction } = useBudget()
 
@@ -64,6 +75,12 @@ function TransactionRow({ transaction }) {
         <NameInput
           value={transaction.name}
           onChange={(v) => updateTransaction(transaction.id, { name: v })}
+        />
+      </td>
+      <td>
+        <CategoryToggle 
+          value={transaction.category}
+          onChange={(v) => updateTransaction(transaction.id, { category: v })}
         />
       </td>
       <td>

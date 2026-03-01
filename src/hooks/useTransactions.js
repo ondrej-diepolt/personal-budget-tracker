@@ -2,13 +2,19 @@ import { useState } from "react";
 
 export function useTransactions() {
   const [transactions, setTransactions] = useState([
-    { id: 1, type: "příjem", name: "Wage", amount: 0 },
-    { id: 2, type: "výdaj", name: "Rent", amount: 0 },
-    { id: 3, type: "výdaj", name: "Energy", amount: 0 },
-    { id: 4, type: "výdaj", name: "Groceries", amount: 0 },
-    { id: 5, type: "výdaj", name: "Fuel", amount: 0 },
-    { id: 6, type: "výdaj", name: "Clothing", amount: 0 },
-    { id: 7, type: "výdaj", name: "Subscriptions", amount: 0 },
+    { id: 1, type: "income", name: "Wage", category: "Other", amount: 0 },
+    { id: 2, type: "expense", name: "Rent", category: "Other", amount: 0 },
+    { id: 3, type: "expense", name: "Energy", category: "Other", amount: 0 },
+    { id: 4, type: "expense", name: "Groceries", category: "Other", amount: 0 },
+    { id: 5, type: "expense", name: "Fuel", category: "Other", amount: 0 },
+    { id: 6, type: "expense", name: "Clothing", category: "Other", amount: 0 },
+    {
+      id: 7,
+      type: "expense",
+      name: "Subscriptions",
+      category: "Other",
+      amount: 0,
+    },
   ]);
 
   function removeTransaction(id) {
@@ -33,6 +39,7 @@ export function useTransactions() {
         id: newId,
         type: "výdaj",
         name: "Nová položka",
+        category: "Other",
         amount: 0,
       },
     ]);

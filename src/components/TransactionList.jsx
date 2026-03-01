@@ -10,9 +10,10 @@ function TransactionList() {
       <table>
         <thead>
           <tr>
-            <th>Typ</th>
-            <th>Název</th>
-            <th>Částka</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Amount</th>
             <th></th>
           </tr>
         </thead>
@@ -23,7 +24,7 @@ function TransactionList() {
         </tbody>
       </table>
       <button type="button" onClick={addTransaction}>
-        + Add
+        Add
       </button>
     </form>
   )
