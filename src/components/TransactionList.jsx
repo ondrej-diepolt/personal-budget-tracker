@@ -23,7 +23,7 @@ function TransactionList() {
           ))}
         </tbody>
       </table>
-      <button type="button" onClick={addTransaction}>
+      <button type="button" className='add-transaction' onClick={addTransaction}>
         Add
       </button>
     </form>

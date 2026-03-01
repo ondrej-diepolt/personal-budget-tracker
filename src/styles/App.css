@@ -7,11 +7,19 @@
   padding: 0;
 }
 
+select {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #362823;
+
+}
+
 /* === LAYOUT === */
 body {
   font-family: system-ui, sans-serif;
   background-color: #f7f4ef;
-  color: #2c2a26;
+  color: #362823;
 }
 
 #root {
@@ -41,7 +49,7 @@ header h1 {
 
 header span {
   font-size: 0.9rem;
-  color: #8c8880;
+  color: #362823;
 }
 
 /* === TRANSACTION LIST === */
@@ -63,7 +71,7 @@ header span {
   text-align: left;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #8c8880;
+  color: #362823;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0 0.5rem 0.75rem;
@@ -84,7 +92,7 @@ header span {
 }
 
 .transaction-list input:focus {
-  border-bottom: 1px solid #b5451b;
+  border-bottom: 1px solid #362823;;
 
   
 }
@@ -103,6 +111,18 @@ header span {
   gap: 0.3rem;
 }
 
-.transaction-list button[type="button"]:last-of-type {
+.transaction-list button[type="button"] add-transaction {
   display: block;
   margin: 1rem auto 0;
+}
+
+.transaction-list .type-expense{
+  color: #362823;
+  background-color: #b5451b;
+}
+
+.transaction-list .type-income {
+  color: #362823;
+  background-color: #1BB596;
+  
+}

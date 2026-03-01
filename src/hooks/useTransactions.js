@@ -37,8 +37,8 @@ export function useTransactions() {
       ...prev,
       {
         id: newId,
-        type: "výdaj",
-        name: "Nová položka",
+        type: "expense",
+        name: "Mew",
         category: "Other",
         amount: 0,
       },
