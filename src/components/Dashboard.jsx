@@ -4,9 +4,9 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
 
 
 const COLORS = [
- "#f2b07a",
+ "#b5451b",
  "#d96b3b",
- "#c4a484"
+ "#f2b07a"
 ]
 
 // ['#b5451b', '#e09b3d', '#1BB596', ]
@@ -47,7 +47,7 @@ function Dashboard() {
 
         <div className="dashboard-charts">
             <div>
-                <h3>Výdaje podle kategorie</h3>
+                <h3>Expense breakdown</h3>
                 <PieChart width={400} height={300}>
                     <Pie data={stats.expenseBreakdown} dataKey="amount" nameKey="category">
                     {stats.expenseBreakdown.map((_, index) => (

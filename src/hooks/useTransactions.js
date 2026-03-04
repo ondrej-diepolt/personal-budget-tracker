@@ -257,7 +257,7 @@ export function useTransactions() {
     );
   }
 
-  function addTransaction() {
+  function addExpense() {
     const newId =
       transactions.length === 0
         ? 1
@@ -268,17 +268,35 @@ export function useTransactions() {
       {
         id: newId,
         type: "Expense",
-        name: "New",
+        name: "New expense",
         category: "Other",
         amount: 0,
       },
     ]);
   }
 
+  function addIncome() {
+    const newId =
+      transactions.length === 0
+        ? 1
+        : Math.max(...transactions.map((t) => t.id)) + 1;
+
+    setTransactions((prev) => [
+      ...prev,
+      {
+        id: newId,
+        type: "Income",
+        name: "New income",
+        category: "Primary income",
+        amount: 0,
+      },
+    ]);
+  }
   return {
     transactions,
     updateTransaction,
-    addTransaction,
+    addExpense,
+    addIncome,
     removeTransaction,
   };
 }

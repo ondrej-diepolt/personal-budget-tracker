@@ -24,7 +24,10 @@ function TransactionList() {
         </tbody>
       </table>
       <button type="button" className='add-transaction' onClick={addTransaction}>
-        Add
+        Add Income
+      </button>
+      <button type="button" className='add-transaction' onClick={addTransaction}>
+        Add Expense
       </button>
     </form>
   )

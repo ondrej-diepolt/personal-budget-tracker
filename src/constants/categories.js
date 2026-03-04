@@ -1,4 +1,5 @@
-export const CATEGORIES = [
+// categories.js
+export const EXPENSE_CATEGORIES = [
   "Housing",
   "Food",
   "Transportation",
@@ -14,6 +15,9 @@ export const CATEGORIES = [
   "Investments",
   "Debt repayment",
   "Other",
+];
+
+export const INCOME_CATEGORIES = [
   "Primary income",
   "Self-employment",
   "Investments",

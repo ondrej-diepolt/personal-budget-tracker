@@ -1,5 +1,5 @@
 import { useBudget } from '../context/BudgetContext'
-import { CATEGORIES } from '../constants/categories'
+import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from '../constants/categories'
 
 function AmountInput({ value, onChange }) {
 
@@ -51,10 +51,10 @@ function TypeToggle({ value, onChange }) {
   )
 }
 
-function CategoryToggle({ value, onChange }) {
+function CategoryToggle({ value, onChange, categories }) {
   return (
     <select value={value} onChange={(e) => onChange(e.target.value)}>
-      {CATEGORIES.map((cat) => (
+      {categories.map((cat) => (
         <option key={cat} value={cat}>{cat}</option>
       ))}
     </select>
@@ -79,9 +79,10 @@ function TransactionRow({ transaction }) {
         />
       </td>
       <td>
-        <CategoryToggle 
+        <CategoryToggle
           value={transaction.category}
           onChange={(v) => updateTransaction(transaction.id, { category: v })}
+          categories={transaction.type === 'Expense' ? EXPENSE_CATEGORIES : INCOME_CATEGORIES}
         />
       </td>
       <td>
