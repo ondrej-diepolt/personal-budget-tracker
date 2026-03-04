@@ -3,7 +3,31 @@ import { useBudgetStats } from '../hooks/useBudgetStats'
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
 
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28DFF', '#FF6B6B']
+const COLORS = [
+ "#f2b07a",
+ "#d96b3b",
+ "#c4a484"
+]
+
+// ['#b5451b', '#e09b3d', '#1BB596', ]
+
+// [
+//  "#b5451b",
+//  "#d96b3b",
+//  "#f2b07a"
+// ]
+
+// [
+//  "#b5451b",
+//  "#c9a227",
+//  "#1BB596"
+// ]
+
+// [
+//  "#a44a2a",
+//  "#c4a484",
+//  "#3c9a8b"
+// ]
 
 function Dashboard() {
     const { transactions } = useBudget()

@@ -1,1 +1,22 @@
-export const CATEGORIES = ["House", "Clothes", "Fun", "Other"];
+export const CATEGORIES = [
+  "Housing",
+  "Food",
+  "Transportation",
+  "Health",
+  "Mandatory payments",
+  "Communication",
+  "Restaurants & Cafes",
+  "Entertainment",
+  "Shopping",
+  "Travel",
+  "Subscriptions",
+  "Emergency fund",
+  "Investments",
+  "Debt repayment",
+  "Other",
+  "Primary income",
+  "Self-employment",
+  "Investments",
+  "Government income",
+  "Other income",
+];
