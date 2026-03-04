@@ -126,3 +126,29 @@ header span {
   background-color: #1BB596;
   
 }
+
+.dashboard {
+  width: 80%;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  background-color: #faf8f4;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(44, 42, 38, 0.08);
+}
+
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-charts {
+  display: flex;
+  /* align-items: flex-start; */
+  justify-content: center;
+  gap: 2rem;
+}
+
+.dashboard-charts h3 {
+  text-align: center;
+}
