@@ -2,34 +2,36 @@ import TransactionRow from './TransactionRow'
 import { useBudget } from '../context/BudgetContext'
 
 function TransactionList() {
-  const { transactions, addTransaction } = useBudget()
+  const { transactions, addExpense, addIncome } = useBudget()
+
+  const income = transactions.filter(t => t.type === 'Income')
+  const expenses = transactions.filter(t => t.type === 'Expense')
+
+  const renderTable = (rows) => (
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(t => <TransactionRow key={t.id} transaction={t} />)}
+      </tbody>
+    </table>
+  )
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}
-    className='transaction-list'>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map(t => (
-            <TransactionRow key={t.id} transaction={t} />
-          ))}
-        </tbody>
-      </table>
-      <button type="button" className='add-transaction' onClick={addTransaction}>
-        Add Income
-      </button>
-      <button type="button" className='add-transaction' onClick={addTransaction}>
-        Add Expense
-      </button>
-    </form>
+    <div className='transaction-list'>
+      <h3>Income</h3>
+      {renderTable(income)}
+      <h3>Expenses</h3>
+      {renderTable(expenses)}
+      <button type="button" className='add-transaction' onClick={addIncome}>+ Add Income</button>
+      <button type="button" className='add-transaction' onClick={addExpense}>+ Add Expense</button>
+    </div>
   )
 }
 

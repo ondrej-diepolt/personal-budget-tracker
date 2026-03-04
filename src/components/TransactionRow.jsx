@@ -67,12 +67,6 @@ function TransactionRow({ transaction }) {
   return (
     <tr>
       <td>
-        <TypeToggle
-          value={transaction.type}
-          onChange={(v) => updateTransaction(transaction.id, { type: v })}
-        />
-      </td>
-      <td>
         <NameInput
           value={transaction.name}
           onChange={(v) => updateTransaction(transaction.id, { name: v })}
