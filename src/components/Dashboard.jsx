@@ -49,8 +49,8 @@ function Dashboard() {
             <div>
                 <h3>Expense breakdown</h3>
                 <PieChart width={400} height={300}>
-                    <Pie data={stats.expenseBreakdown} dataKey="amount" nameKey="category">
-                    {stats.expenseBreakdown.map((_, index) => (
+                    <Pie data={stats.needsWantsSavings} dataKey="amount" nameKey="category">
+                    {stats.needsWantsSavings.map((_, index) => (
                         <Cell key={index} fill={COLORS[index % COLORS.length]} />
                     ))}
                     </Pie>
@@ -60,7 +60,7 @@ function Dashboard() {
             </div>
             
             <div>
-                <h3>Příjmy podle kategorie</h3>
+                {/* <h3>Příjmy podle kategorie</h3>
                 <PieChart width={400} height={300}>
                     <Pie data={stats.incomeBreakdown} dataKey="amount" nameKey="category">
                     {stats.incomeBreakdown.map((_, index) => (
@@ -69,7 +69,7 @@ function Dashboard() {
                     </Pie>
                     <Tooltip formatter={(value) => `${value} Kč`} />
                     <Legend />
-                </PieChart>
+                </PieChart> */}
             </div>
 
         </div>
