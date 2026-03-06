@@ -31,6 +31,12 @@ function TransactionList() {
       {renderTable(expenses)}
       <button type="button" className='add-transaction' onClick={addIncome}>+ Add Income</button>
       <button type="button" className='add-transaction' onClick={addExpense}>+ Add Expense</button>
+      <div className='reset-table'>
+        <h4>Reset list: </h4>
+        <button className='reset-transactions'> 5 </button>
+        <button className='reset-transactions'> 15 </button>
+        <button className='reset-transactions'> 25 </button>
+      </div>
     </div>
   )
 }

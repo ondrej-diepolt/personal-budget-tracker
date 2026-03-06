@@ -1,6 +1,6 @@
 import { useBudget } from '../context/BudgetContext'
 import { useBudgetStats } from '../hooks/useBudgetStats'
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
+import { PieChart, Pie, Cell, Tooltip, Label, BarChart, Bar, XAxis, YAxis, Legend } from 'recharts'
 
 
 const COLORS = [
@@ -33,7 +33,10 @@ function Dashboard() {
     const { transactions } = useBudget()
     const stats = useBudgetStats(transactions)
 
-   console.log('stats:', stats)
+    const barData = [
+  { type: "Income", amount: stats.totalIncome },
+  { type: "Expense", amount: stats.totalExpenses }
+]
 
   return (
     <div className="dashboard">
@@ -54,22 +57,39 @@ function Dashboard() {
                         <Cell key={index} fill={COLORS[index % COLORS.length]} />
                     ))}
                     </Pie>
-                    <Tooltip formatter={(value) => `${value} Kč`} />
+                    <Tooltip 
+                        formatter={(value) => {
+                            const total = stats.needsWantsSavings.reduce(
+                            (sum, item) => sum + item.amount,
+                            0
+                            )
+                            const percent = ((value / total) * 100).toFixed(1)
+                            return `${percent} %`
+                        }}
+                    />
                     <Legend />
                 </PieChart>
             </div>
             
             <div>
-                {/* <h3>Příjmy podle kategorie</h3>
-                <PieChart width={400} height={300}>
-                    <Pie data={stats.incomeBreakdown} dataKey="amount" nameKey="category">
-                    {stats.incomeBreakdown.map((_, index) => (
-                        <Cell key={index} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                    </Pie>
+                <h3>Income vs Expense</h3>
+                <BarChart width={400} height={300} data={barData}>
+                    <XAxis dataKey="type" />
+                    <YAxis>
+                        <Label
+                            value="Kč"
+                            position="top"
+                        />
+                    </YAxis>
                     <Tooltip formatter={(value) => `${value} Kč`} />
-                    <Legend />
-                </PieChart> */}
+
+                    <Bar dataKey="amount">
+                        <Cell fill="#1BB596"/>
+                        <Cell fill="#b5451b"/>
+                    </Bar>
+
+                </BarChart>
+                
             </div>
 
         </div>
