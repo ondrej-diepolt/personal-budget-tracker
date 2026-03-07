@@ -1,8 +1,9 @@
 import TransactionRow from './TransactionRow'
 import { useBudget } from '../context/BudgetContext'
+import { PRESET_FULL, PRESET_MEDIUM, PRESET_SMALL } from '../constants/transactionPresets'
 
 function TransactionList() {
-  const { transactions, addExpense, addIncome } = useBudget()
+  const { transactions, addExpense, addIncome, resetToPreset } = useBudget()
 
   const income = transactions.filter(t => t.type === 'Income')
   const expenses = transactions.filter(t => t.type === 'Expense')
@@ -33,9 +34,9 @@ function TransactionList() {
       <button type="button" className='add-transaction' onClick={addExpense}>+ Add Expense</button>
       <div className='reset-table'>
         <h4>Reset list: </h4>
-        <button className='reset-transactions'> 5 </button>
-        <button className='reset-transactions'> 15 </button>
-        <button className='reset-transactions'> 25 </button>
+        <button className='reset-transactions' onClick={() => resetToPreset(PRESET_SMALL)}> Small </button>
+        <button className='reset-transactions' onClick={() => resetToPreset(PRESET_MEDIUM)}> Medium </button>
+        <button className='reset-transactions' onClick={() => resetToPreset(PRESET_FULL)}> Full </button>
       </div>
     </div>
   )
