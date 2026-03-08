@@ -3,7 +3,7 @@ import { useBudget } from '../context/BudgetContext'
 import { PRESET_FULL, PRESET_MEDIUM, PRESET_SMALL } from '../constants/transactionPresets'
 
 function TransactionList() {
-  const { transactions, addExpense, addIncome, resetToPreset } = useBudget()
+  const { transactions, addExpense, addIncome, resetToPreset, exportFile } = useBudget()
 
   const income = transactions.filter(t => t.type === 'Income')
   const expenses = transactions.filter(t => t.type === 'Expense')
@@ -33,6 +33,7 @@ function TransactionList() {
       <div className='add-buttons'>
         <button type="button" className='add-transaction' onClick={addIncome}>+ Add Income</button>
         <button type="button" className='add-transaction' onClick={addExpense}>+ Add Expense</button>
+        <button type="button" onClick={exportFile}>Export JSON</button>
       </div>
       <div className='reset-table'>
         <h4>Reset list: </h4>

@@ -5,10 +5,10 @@ import { useTransactions } from '../hooks/useTransactions'
 const BudgetContext = createContext(null)
 
 export function BudgetProvider({ children }) {
-  const { transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction } = useTransactions()
+  const { transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile } = useTransactions()
 
   return (
-    <BudgetContext.Provider value={{ transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction }}>
+    <BudgetContext.Provider value={{ transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile }}>
       {children}
     </BudgetContext.Provider>
   )
