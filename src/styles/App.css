@@ -22,6 +22,29 @@ body {
   color: #362823;
 }
 
+button {
+  padding: 0.45em 1.1em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #362823;
+  background-color: transparent;
+  border: 1px solid #c8c2b8;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background-color: #ede8e1;
+  border-color: #362823;
+  /* border-color: #b5451b; */
+}
+
+button:active {
+  background-color: #e0d9d0;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -127,6 +150,23 @@ header span {
   
 }
 
+/* === ADD BUTTONS === */
+.add-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* === RESET BUTTONS === */
+.reset-table {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+/* === Dashboard === */
 .dashboard {
   width: 80%;
   margin: 2rem auto;
