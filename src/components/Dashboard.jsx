@@ -30,7 +30,7 @@ const COLORS = [
 // ]
 
 function Dashboard() {
-    const { transactions } = useBudget()
+    const { transactions, currentMonth, prevMonth, nextMonth, formatLabel  } = useBudget()
     const stats = useBudgetStats(transactions)
 
     const barData = [
@@ -47,6 +47,12 @@ function Dashboard() {
         <p>Expense: {stats.totalExpenses} Kč</p>
         <p>Balance: {stats.balance} Kč</p>
       </div> */}
+
+        <div className='month-navigator'>
+            <button onClick={prevMonth}>←</button>
+            <span>{formatLabel(currentMonth)}</span>
+            <button onClick={nextMonth}>→</button>
+         </div>
 
         <div className="dashboard-charts">
             <div>
