@@ -1,12 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PRESET_FULL,
   PRESET_MEDIUM,
   PRESET_SMALL,
 } from "../constants/transactionPresets";
 
-export function useTransactions() {
-  const [transactions, setTransactions] = useState(PRESET_FULL);
+export function useTransactions(currentMonth) {
+  const [transactions, setTransactions] = useState(() => {
+    const saved = localStorage.getItem(`budget_${currentMonth}`);
+    return saved ? JSON.parse(saved) : PRESET_FULL.map((t) => ({ ...t }));
+  });
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`budget_${currentMonth}`);
+    setTransactions(
+      saved ? JSON.parse(saved) : PRESET_FULL.map((t) => ({ ...t })),
+    );
+  }, [currentMonth]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      `budget_${currentMonth}`,
+      JSON.stringify(transactions),
+    );
+  }, [transactions, currentMonth]);
 
   function resetToPreset(preset) {
     setTransactions(preset.map((t) => ({ ...t })));
