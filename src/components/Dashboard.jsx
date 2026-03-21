@@ -3,11 +3,7 @@ import { useBudgetStats } from '../hooks/useBudgetStats'
 import { PieChart, Pie, Cell, Tooltip, Label, BarChart, Bar, XAxis, YAxis, Legend } from 'recharts'
 
 
-const COLORS = [
-"#74C0FC",
-"#8CE99A",
- "#FFA8A8"
-]
+const COLORS = ["#4F46E5", "#818CF8", "#C7D2FE"]
 
 // ['#b5451b', '#e09b3d', '#1BB596', ]
 
@@ -40,13 +36,27 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h2>Dashboard</h2>
 
-      {/* <div>
-        <p>Income: {stats.totalIncome} Kč</p>
-        <p>Expense: {stats.totalExpenses} Kč</p>
-        <p>Balance: {stats.balance} Kč</p>
-      </div> */}
+      <div className="stat-cards">
+                <div className="stat-card">
+                    <span className="stat-label">TOTAL INCOME</span>
+                    <span className=" stat-value stat-value--income">
+                        {stats.totalIncome.toLocaleString('cs-CZ')} Kč
+                    </span>
+                </div>
+                <div className="stat-card">
+                    <span className="stat-label">TOTAL EXPENSES</span>
+                    <span className="stat-value stat-value--expense">
+                        {stats.totalExpenses.toLocaleString('cs-CZ')} Kč
+                    </span>
+                </div>
+                <div className="stat-card stat-card--balance">
+                    <span className="stat-label">BALANCE</span>
+                    <span className="stat-value stat-value--balance">
+                        {stats.balance.toLocaleString('cs-CZ')} Kč
+                    </span>
+                </div>
+        </div>
 
         <div className='month-navigator'>
             <button onClick={prevMonth}>←</button>
@@ -55,7 +65,7 @@ function Dashboard() {
          </div>
 
         <div className="dashboard-charts">
-            <div>
+            <div className="chart-card">
                 <h3>Expense breakdown</h3>
                 <PieChart width={400} height={300}>
                     <Pie data={stats.needsWantsSavings} dataKey="amount" nameKey="category">
@@ -77,7 +87,7 @@ function Dashboard() {
                 </PieChart>
             </div>
             
-            <div>
+            <div className="chart-card">
                 <h3>Income vs Expense</h3>
                 <BarChart width={400} height={300} data={barData}>
                     <XAxis dataKey="type" />
@@ -90,8 +100,8 @@ function Dashboard() {
                     <Tooltip formatter={(value) => `${value} Kč`} />
 
                     <Bar dataKey="amount">
-                        <Cell fill="#1BB596"/>
-                        <Cell fill="#E23C20"/>
+                        <Cell fill="#4F46E5"/>
+                        <Cell fill="#EF4444"/>
                     </Bar>
 
                 </BarChart>

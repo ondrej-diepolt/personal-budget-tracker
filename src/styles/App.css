@@ -168,25 +168,113 @@ header span {
 
 /* === Dashboard === */
 .dashboard {
-  width: 80%;
+  max-width: 1100px;
   margin: 2rem auto;
-  padding: 2rem;
-
-  background-color: #faf8f4;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(44, 42, 38, 0.08);
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.dashboard h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+/* Stat cards row */
+.stat-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }
 
+.stat-card {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stat-card--balance {
+  background: linear-gradient(135deg, #3525cd, #4F46E5);
+  border: none;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+
+.stat-card--balance .stat-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.stat-value--income { color: #10B981; }
+.stat-value--expense { color: #EF4444; }
+.stat-value--balance { color: #ffffff; }
+
+/* Chart cards row */
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.chart-card {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  padding: 1.5rem;
+}
+
+.chart-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 1rem;
+}
+
+/* === MONTH NAVIGATOR === */
 .month-navigator {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.month-navigator span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1E293B;
+  min-width: 120px;
+  text-align: center;
+}
+
+.month-navigator button {
+  background: none;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: #64748B;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-navigator button:hover {
+  background: #F8FAFC;
+  color: #1E293B;
 }
 
 .dashboard-charts {
