@@ -26,17 +26,27 @@ function TransactionList() {
 
   return (
     <div className='transaction-list'>
-      <h3>Income</h3>
-      {renderTable(income)}
-      <h3>Expenses</h3>
-      {renderTable(expenses)}
-      <div className='add-buttons'>
-        <button type="button" className='add-transaction' onClick={addIncome}>+ Add Income</button>
-        <button type="button" className='add-transaction' onClick={addExpense}>+ Add Expense</button>
-        <button type="button" onClick={exportFile}>Export JSON</button>
+      <div className='transaction-list-header'>
+        <h2>Transactions</h2>
+        <span className='transaction-list-meta'>
+          {transactions.length} records
+        </span>
       </div>
+      
+      <p className='section-label'>Income</p>
+      {renderTable(income, 'Income')}
+      <button type="button" className='add-transaction' onClick={addIncome}>
+        + Add Income
+      </button>
+
+      <p className='section-label'>Expenses</p>
+      {renderTable(expenses, 'Expense')}
+      <button type="button" className='add-transaction' onClick={addExpense}>
+        + Add Expense
+      </button>
+
       <div className='reset-table'>
-        <h4>Reset list: </h4>
+        <span>Reset to sample data: </span>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_SMALL)}> Small </button>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_MEDIUM)}> Medium </button>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_FULL)}> Full </button>

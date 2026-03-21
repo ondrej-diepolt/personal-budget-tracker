@@ -8,8 +8,10 @@ function App() {
   return (
     <BudgetProvider>
       <Header />
+      <main className="main-content">
       <Dashboard />
       <TransactionList />
+      </main>
     </BudgetProvider>
   )
 }

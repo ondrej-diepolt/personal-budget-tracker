@@ -1,4 +1,4 @@
-// categories.js
+// categories.jsgi
 export const EXPENSE_CATEGORIES = [
   "Housing",
   "Food",

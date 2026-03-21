@@ -101,7 +101,7 @@ function Dashboard() {
 
                     <Bar dataKey="amount">
                         <Cell fill="#4F46E5"/>
-                        <Cell fill="#EF4444"/>
+                        <Cell fill="#BA1A1A"/>
                     </Bar>
 
                 </BarChart>
