@@ -4,9 +4,9 @@ import { PieChart, Pie, Cell, Tooltip, Label, BarChart, Bar, XAxis, YAxis, Legen
 
 
 const COLORS = [
- "#b5451b",
- "#d96b3b",
- "#f2b07a"
+"#74C0FC",
+"#8CE99A",
+ "#FFA8A8"
 ]
 
 // ['#b5451b', '#e09b3d', '#1BB596', ]
@@ -91,7 +91,7 @@ function Dashboard() {
 
                     <Bar dataKey="amount">
                         <Cell fill="#1BB596"/>
-                        <Cell fill="#b5451b"/>
+                        <Cell fill="#E23C20"/>
                     </Bar>
 
                 </BarChart>
