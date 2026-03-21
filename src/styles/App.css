@@ -17,9 +17,9 @@ select {
 
 /* === LAYOUT === */
 body {
-  font-family: system-ui, sans-serif;
-  background-color: #f7f4ef;
-  color: #362823;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
 }
 
 button {
@@ -53,26 +53,26 @@ button:active {
 
 /* === HEADER === */
 header {
-  background-color: #faf8f4;
-  color: #2c2a26;
-  padding: 1rem 2rem;
+  background-color: #ffffff;
+  height: 64px;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #e8e3db;
-  box-shadow: 0 1px 4px rgba(44, 42, 38, 0.06);
+  border-bottom: 1px solid #E2E8F0;
 }
 
 header h1 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #b5451b;
+  color: #4F46E5;
+  letter-spacing: 0.01em;
 }
+
 
 header span {
   font-size: 0.9rem;
-  color: #362823;
+  color: #64748B;
 }
 
 /* === TRANSACTION LIST === */
