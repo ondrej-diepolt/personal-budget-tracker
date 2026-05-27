@@ -7,12 +7,12 @@ const BudgetContext = createContext(null)
 
 export function BudgetProvider({ children }) {
   const { currentMonth, prevMonth, nextMonth, formatLabel } = useMonth()
-  const { transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile } = useTransactions(currentMonth)
+  const { transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile, importFile    } = useTransactions(currentMonth)
 
   return (
     <BudgetContext.Provider value={{ 
       currentMonth, prevMonth, nextMonth, formatLabel,
-      transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile }}>
+      transactions, resetToPreset, updateTransaction, addExpense, addIncome, removeTransaction, exportFile, importFile}}>
       {children}
     </BudgetContext.Provider>
   )

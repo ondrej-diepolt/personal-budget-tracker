@@ -1,10 +1,17 @@
+import { useRef } from 'react'
 import TransactionRow from './TransactionRow'
 import { useBudget } from '../context/BudgetContext'
 import { PRESET_FULL, PRESET_MEDIUM, PRESET_SMALL } from '../constants/transactionPresets'
 
 function TransactionList() {
-  const { transactions, addExpense, addIncome, resetToPreset, exportFile } = useBudget()
+  const { transactions, addExpense, addIncome, resetToPreset, exportFile, importFile } = useBudget()
+  const fileInputRef = useRef(null)
 
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0]
+    if (file) importFile(file)
+    e.target.value = ''
+  }
   const income = transactions.filter(t => t.type === 'Income')
   const expenses = transactions.filter(t => t.type === 'Expense')
 
@@ -46,6 +53,16 @@ function TransactionList() {
       </button>
 
       <div className='reset-table'>
+        <button className='reset-transactions' onClick={() => exportFile('json')}>Export JSON</button>
+        <button className='reset-transactions' onClick={() => exportFile('csv')}>Export CSV</button>
+        <button className='reset-transactions' onClick={() => fileInputRef.current?.click()}>Import</button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".json,.csv"
+          style={{ display: 'none' }}
+          onChange={handleFileSelect}
+        />
         <span>Reset to sample data: </span>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_SMALL)}> Small </button>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_MEDIUM)}> Medium </button>

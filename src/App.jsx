@@ -1,5 +1,5 @@
 import './styles/App.css'
-import Header from './components/header'
+import Header from './components/Header'
 import TransactionList from './components/TransactionList'
 import Dashboard from './components/Dashboard'
 import { BudgetProvider } from './context/BudgetContext'

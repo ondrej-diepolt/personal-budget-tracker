@@ -235,7 +235,6 @@ header span {
 .reset-table {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 0.5rem;
   margin-top: 2rem;
   padding-top: 1rem;
@@ -245,6 +244,7 @@ header span {
 .reset-table span {
   font-size: 0.85rem;
   color: #94A3B8;
+  margin-left: auto; 
 }
 
 .reset-btn {

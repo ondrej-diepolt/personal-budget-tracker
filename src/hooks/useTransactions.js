@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+import { JSONExporter, CSVExporter } from '../lib/Exporter'
+import { JSONImporter, CSVImporter } from '../lib/Importer'
 import {
   PRESET_FULL,
   PRESET_MEDIUM,
   PRESET_SMALL,
 } from "../constants/transactionPresets";
+
+const EXPORTERS = {
+  json: JSONExporter,
+  csv:  CSVExporter,
+}
 
 export function useTransactions(currentMonth) {
   const [transactions, setTransactions] = useState(() => {
@@ -73,15 +80,23 @@ export function useTransactions(currentMonth) {
     ]);
   }
 
-  function exportFile() {
-    const json = JSON.stringify(transactions, null, 2);
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "budget.json";
-    a.click();
-    URL.revokeObjectURL(url);
+  function exportFile(format = 'json') {
+    const ExporterClass = EXPORTERS[format]
+    if (!ExporterClass) {
+      console.error(`Unsupported export format: ${format}`)
+      return
+    }
+    const exporter = new ExporterClass()
+    exporter.download(transactions, `budget_${currentMonth}`)
+  }
+
+  async function importFile(file) {
+    const isJSON   = file.name.endsWith('.json')
+    const importer = isJSON ? new JSONImporter() : new CSVImporter()
+    const result   = await importer.import(file)
+    if (result.errors.length === 0 || confirm(`${result.errors.length} chyb, importovat ${result.valid.length} platných?`)) {
+      setTransactions(result.valid)
+    }
   }
 
   return {
@@ -92,5 +107,6 @@ export function useTransactions(currentMonth) {
     addIncome,
     removeTransaction,
     exportFile,
+    importFile,
   };
 }
