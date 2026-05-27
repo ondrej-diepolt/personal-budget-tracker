@@ -1,6 +1,7 @@
 import { useBudget } from '../context/BudgetContext'
 import { useBudgetStats } from '../hooks/useBudgetStats'
 import { PieChart, Pie, Cell, Tooltip, Label, BarChart, Bar, XAxis, YAxis, Legend } from 'recharts'
+import { BudgetUtils } from '../lib/BudgetUtils'
 
 
 const COLORS = ["#4F46E5", "#818CF8", "#C7D2FE"]
@@ -40,20 +41,20 @@ function Dashboard() {
       <div className="stat-cards">
                 <div className="stat-card">
                     <span className="stat-label">TOTAL INCOME</span>
-                    <span className=" stat-value stat-value--income">
-                        {stats.totalIncome.toLocaleString('cs-CZ')} Kč
+                    <span className="stat-value stat-value--income">
+                        {BudgetUtils.formatCZK(stats.totalIncome)}
                     </span>
                 </div>
                 <div className="stat-card">
                     <span className="stat-label">TOTAL EXPENSES</span>
                     <span className="stat-value stat-value--expense">
-                        {stats.totalExpenses.toLocaleString('cs-CZ')} Kč
+                        {BudgetUtils.formatCZK(stats.totalExpenses)}
                     </span>
                 </div>
                 <div className="stat-card stat-card--balance">
                     <span className="stat-label">BALANCE</span>
                     <span className="stat-value stat-value--balance">
-                        {stats.balance.toLocaleString('cs-CZ')} Kč
+                        {BudgetUtils.formatCZK(stats.balance)}
                     </span>
                 </div>
         </div>
@@ -97,7 +98,7 @@ function Dashboard() {
                             position="top"
                         />
                     </YAxis>
-                    <Tooltip formatter={(value) => `${value} Kč`} />
+                    <Tooltip formatter={(value) => BudgetUtils.formatCZK(value)} />
 
                     <Bar dataKey="amount">
                         <Cell fill="#4F46E5"/>
