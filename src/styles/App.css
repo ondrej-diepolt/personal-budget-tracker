@@ -149,6 +149,22 @@ header span {
   background: #F8FAFC;
 }
 
+/* Row entrance animation */
+@keyframes rowEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transaction-list tbody tr {
+  animation: rowEnter 0.35s ease-out backwards;
+}
+
 /* Inline inputs */
 .transaction-list input {
   background: transparent;
@@ -288,6 +304,16 @@ header span {
   gap: 0.75rem;
   min-height: 140px;
   justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.stat-card--balance:hover {
+  transform: perspective(600px) rotateX(4deg) translateY(-4px);
 }
 
 .stat-card--balance {

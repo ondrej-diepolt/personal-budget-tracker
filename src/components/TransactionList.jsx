@@ -26,7 +26,7 @@ function TransactionList() {
         </tr>
       </thead>
       <tbody>
-        {rows.map(t => <TransactionRow key={t.id} transaction={t} />)}
+        {rows.map((t, i) => <TransactionRow key={t.id} transaction={t} index={i} />)}
       </tbody>
     </table>
   )

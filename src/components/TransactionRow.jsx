@@ -61,11 +61,11 @@ function CategoryToggle({ value, onChange, categories }) {
   )
 }
 
-function TransactionRow({ transaction }) {
+function TransactionRow({ transaction, index }) {
   const { updateTransaction, removeTransaction } = useBudget()
 
   return (
-    <tr>
+    <tr style={{ animationDelay: `${index * 40}ms` }}>
       <td>
         <NameInput
           value={transaction.name}
