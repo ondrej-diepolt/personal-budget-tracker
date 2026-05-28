@@ -33,15 +33,15 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.15s, border-color 0.15s;
-}
 
-button:hover {
-  background-color: #F8FAFC;
-  border-color: #94A3B8;
-}
+  &:hover {
+    background-color: #F8FAFC;
+    border-color: #94A3B8;
+  }
 
-button:active {
-  background-color: #F1F5F9;
+  &:active {
+    background-color: #F1F5F9;
+  }
 }
 
 #root {
@@ -68,19 +68,18 @@ header {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #E2E8F0;
-}
 
-header h1 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4F46E5;
-  letter-spacing: 0.01em;
-}
+  h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4F46E5;
+    letter-spacing: 0.01em;
+  }
 
-
-header span {
-  font-size: 0.9rem;
-  color: #64748B;
+  span {
+    font-size: 0.9rem;
+    color: #64748B;
+  }
 }
 /* === TRANSACTION LIST === */
 .transaction-list {
@@ -95,12 +94,12 @@ header span {
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 1.5rem;
-}
 
-.transaction-list-header h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1E293B;
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1E293B;
+  }
 }
 
 .transaction-list-meta {
@@ -173,10 +172,10 @@ header span {
   font-size: 0.95rem;
   color: #1E293B;
   width: 100%;
-}
 
-.transaction-list input:focus {
-  border-bottom: 1px solid #4F46E5;
+  &:focus {
+    border-bottom: 1px solid #4F46E5;
+  }
 }
 
 .transaction-list select {
@@ -222,11 +221,11 @@ header span {
   padding: 2px 6px;
   border-radius: 4px;
   transition: background 0.15s, color 0.15s;
-}
 
-.transaction-list button[type="button"]:not(.add-transaction):not(.reset-btn):hover {
-  background: #FEE2E2;
-  color: #EF4444;
+  &:hover {
+    background: #FEE2E2;
+    color: #EF4444;
+  }
 }
 
 /* Add buttons */
@@ -240,11 +239,11 @@ header span {
   color: #4F46E5;
   cursor: pointer;
   font-weight: 500;
-}
 
-.add-transaction:hover {
-  background: #EEF2FF;
-  border-color: #4F46E5;
+  &:hover {
+    background: #EEF2FF;
+    border-color: #4F46E5;
+  }
 }
 
 /* Reset row */
@@ -255,12 +254,12 @@ header span {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid #F1F5F9;
-}
 
-.reset-table span {
-  font-size: 0.85rem;
-  color: #94A3B8;
-  margin-left: auto; 
+  span {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    margin-left: auto; 
+  }
 }
 
 .reset-btn {
@@ -272,11 +271,11 @@ header span {
   font-size: 0.85rem;
   color: #64748B;
   cursor: pointer;
-}
 
-.reset-btn:hover {
-  background: #F8FAFC;
-  color: #1E293B;
+  &:hover {
+    background: #F8FAFC;
+    color: #1E293B;
+  }
 }
 
 
@@ -305,11 +304,11 @@ header span {
   min-height: 140px;
   justify-content: space-between;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  }
 }
 
 .stat-card--balance:hover {
@@ -359,14 +358,14 @@ header span {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.chart-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1E293B;
-  margin-bottom: 1rem;
-  align-self: flex-start; 
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1E293B;
+    margin-bottom: 1rem;
+    align-self: flex-start; 
+  }
 }
 
 /* === MONTH NAVIGATOR === */
@@ -375,33 +374,33 @@ header span {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-}
 
-.month-navigator span {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #1E293B;
-  min-width: 120px;
-  text-align: center;
-}
+  span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1E293B;
+    min-width: 120px;
+    text-align: center;
+  }
 
-.month-navigator button {
-  background: none;
-  border: 1px solid #E2E8F0;
-  border-radius: 6px;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  color: #64748B;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  button {
+    background: none;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: #64748B;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.month-navigator button:hover {
-  background: #F8FAFC;
-  color: #1E293B;
+    &:hover {
+      background: #F8FAFC;
+      color: #1E293B;
+    }
+  }
 }
 
 @media (max-width: 768px) {
