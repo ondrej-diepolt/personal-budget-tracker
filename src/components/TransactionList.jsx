@@ -1,17 +1,21 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import TransactionRow from './TransactionRow'
 import { useBudget } from '../context/BudgetContext'
 import { PRESET_FULL, PRESET_MEDIUM, PRESET_SMALL } from '../constants/transactionPresets'
+import '../lib/FileDropzone'
 
 function TransactionList() {
   const { transactions, addExpense, addIncome, resetToPreset, exportFile, importFile } = useBudget()
-  const fileInputRef = useRef(null)
+  const dropzoneRef = useRef(null)
 
-  const handleFileSelect = (e) => {
-    const file = e.target.files[0]
-    if (file) importFile(file)
-    e.target.value = ''
-  }
+  useEffect(() => {
+    const el = dropzoneRef.current
+    if (!el) return
+    const handler = (e) => importFile(e.detail.file)
+    el.addEventListener('file-selected', handler)
+    return () => el.removeEventListener('file-selected', handler)
+  }, [importFile])
+
   const income = transactions.filter(t => t.type === 'Income')
   const expenses = transactions.filter(t => t.type === 'Expense')
 
@@ -39,7 +43,7 @@ function TransactionList() {
           {transactions.length} records
         </span>
       </div>
-      
+
       <p className='section-label'>Income</p>
       {renderTable(income, 'Income')}
       <button type="button" className='add-transaction' onClick={addIncome}>
@@ -52,17 +56,11 @@ function TransactionList() {
         + Add Expense
       </button>
 
+      <file-dropzone ref={dropzoneRef}></file-dropzone>
+
       <div className='reset-table'>
         <button className='reset-transactions' onClick={() => exportFile('json')}>Export JSON</button>
         <button className='reset-transactions' onClick={() => exportFile('csv')}>Export CSV</button>
-        <button className='reset-transactions' onClick={() => fileInputRef.current?.click()}>Import</button>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept=".json,.csv"
-          style={{ display: 'none' }}
-          onChange={handleFileSelect}
-        />
         <span>Reset to sample data: </span>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_SMALL)}> Small </button>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_MEDIUM)}> Medium </button>
