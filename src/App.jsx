@@ -9,8 +9,8 @@ function App() {
     <BudgetProvider>
       <Header />
       <main className="main-content">
-      <Dashboard />
-      <TransactionList />
+        <Dashboard />
+        <TransactionList />
       </main>
     </BudgetProvider>
   )

@@ -36,7 +36,7 @@ function Dashboard() {
 ]
 
   return (
-    <div className="dashboard">
+    <section className="dashboard">
 
       <div className="stat-cards">
                 <div className="stat-card">
@@ -59,14 +59,14 @@ function Dashboard() {
                 </div>
         </div>
 
-        <div className='month-navigator'>
+        <nav className='month-navigator'>
             <button onClick={prevMonth}>←</button>
             <span>{formatLabel(currentMonth)}</span>
             <button onClick={nextMonth}>→</button>
-         </div>
+        </nav>
 
         <div className="dashboard-charts">
-            <div className="chart-card">
+            <article className="chart-card">
                 <h3>Expense breakdown</h3>
                 <PieChart width={400} height={300}>
                     <Pie data={stats.needsWantsSavings} dataKey="amount" nameKey="category">
@@ -86,9 +86,9 @@ function Dashboard() {
                     />
                     <Legend />
                 </PieChart>
-            </div>
+            </article>
             
-            <div className="chart-card">
+            <article className="chart-card">
                 <h3>Income vs Expense</h3>
                 <BarChart width={400} height={300} data={barData}>
                     <XAxis dataKey="type" />
@@ -107,10 +107,10 @@ function Dashboard() {
 
                 </BarChart>
                 
-            </div>
+            </article>
 
         </div>
-    </div>
+    </section>
   )
 }
 

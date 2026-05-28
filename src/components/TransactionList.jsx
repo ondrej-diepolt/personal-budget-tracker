@@ -36,7 +36,7 @@ function TransactionList() {
   )
 
   return (
-    <div className='transaction-list'>
+    <section className='transaction-list'>
       <div className='transaction-list-header'>
         <h2>Transactions</h2>
         <span className='transaction-list-meta'>
@@ -44,13 +44,13 @@ function TransactionList() {
         </span>
       </div>
 
-      <p className='section-label'>Income</p>
+      <h3 className='section-label'>Income</h3>
       {renderTable(income, 'Income')}
       <button type="button" className='add-transaction' onClick={addIncome}>
         + Add Income
       </button>
 
-      <p className='section-label'>Expenses</p>
+      <h3 className='section-label'>Expenses</h3>
       {renderTable(expenses, 'Expense')}
       <button type="button" className='add-transaction' onClick={addExpense}>
         + Add Expense
@@ -66,7 +66,7 @@ function TransactionList() {
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_MEDIUM)}> Medium </button>
         <button className='reset-transactions' onClick={() => resetToPreset(PRESET_FULL)}> Full </button>
       </div>
-    </div>
+    </section>
   )
 }
 
