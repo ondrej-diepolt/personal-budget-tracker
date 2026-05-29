@@ -1,35 +1,22 @@
+// Dashboard
+// Renders three summary stat cards (Income, Expenses, Balance), a month navigator,
+// and two charts: pie chart for needs/wants/savings split, bar chart for income vs expense.
 import { useBudget } from '../context/BudgetContext'
 import { useBudgetStats } from '../hooks/useBudgetStats'
 import { PieChart, Pie, Cell, Tooltip, Label, BarChart, Bar, XAxis, YAxis, Legend } from 'recharts'
 import { BudgetUtils } from '../lib/BudgetUtils'
 
 
+// Indigo palette used for the PieChart slices (Needs / Wants / Savings).
 const COLORS = ["#4F46E5", "#818CF8", "#C7D2FE"]
 
-// ['#b5451b', '#e09b3d', '#1BB596', ]
-
-// [
-//  "#b5451b",
-//  "#d96b3b",
-//  "#f2b07a"
-// ]
-
-// [
-//  "#b5451b",
-//  "#c9a227",
-//  "#1BB596"
-// ]
-
-// [
-//  "#a44a2a",
-//  "#c4a484",
-//  "#3c9a8b"
-// ]
-
 function Dashboard() {
+    // Pull current month state and actions from the global BudgetContext,
+    // then compute derived statistics from the current month's transactions.
     const { transactions, currentMonth, prevMonth, nextMonth, formatLabel  } = useBudget()
     const stats = useBudgetStats(transactions)
 
+    // Data shape required by the Recharts BarChart (one row per bar).
     const barData = [
   { type: "Income", amount: stats.totalIncome },
   { type: "Expense", amount: stats.totalExpenses }
@@ -38,6 +25,7 @@ function Dashboard() {
   return (
     <section className="dashboard">
 
+      {/* Stat cards row — totals and overall balance */}
       <div className="stat-cards">
                 <div className="stat-card">
                     <span className="stat-label">TOTAL INCOME</span>
@@ -59,15 +47,17 @@ function Dashboard() {
                 </div>
         </div>
 
+        {/* Month navigator — previous / current label / next month */}
         <nav className='month-navigator'>
             <button onClick={prevMonth}>←</button>
             <span>{formatLabel(currentMonth)}</span>
             <button onClick={nextMonth}>→</button>
-        </nav>
+         </nav>
 
+        {/* Charts row — pie chart for expense category split, bar chart for income vs expense */}
         <div className="dashboard-charts">
             <article className="chart-card">
-                <h3>Expense breakdown</h3>
+                <h2>Expense breakdown</h2>
                 <PieChart width={400} height={300}>
                     <Pie data={stats.needsWantsSavings} dataKey="amount" nameKey="category">
                     {stats.needsWantsSavings.map((_, index) => (
@@ -76,6 +66,7 @@ function Dashboard() {
                     </Pie>
                     <Tooltip 
                         formatter={(value) => {
+                            // Convert raw amount to percentage of total for the tooltip label.
                             const total = stats.needsWantsSavings.reduce(
                             (sum, item) => sum + item.amount,
                             0
@@ -89,7 +80,7 @@ function Dashboard() {
             </article>
             
             <article className="chart-card">
-                <h3>Income vs Expense</h3>
+                <h2>Income vs Expense</h2>
                 <BarChart width={400} height={300} data={barData}>
                     <XAxis dataKey="type" />
                     <YAxis>
