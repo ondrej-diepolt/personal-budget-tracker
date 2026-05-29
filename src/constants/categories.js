@@ -1,4 +1,7 @@
-// categories.jsgi
+// Predefined category lists used throughout the app.
+// Expense categories are additionally grouped into Needs / Wants / Savings
+// for the dashboard's pie chart (classic 50/30/20-style budget breakdown).
+
 export const EXPENSE_CATEGORIES = [
   "Housing",
   "Food",
