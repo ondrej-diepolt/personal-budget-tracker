@@ -101,3 +101,8 @@ What the project uses and where it lives in the source.
 | JS library / framework | React 19 (components, hooks, context) and recharts (charts) — across `src/` and `Dashboard.jsx` |
 | Advanced browser APIs | LocalStorage (per-month persistence) — `hooks/useTransactions.js`; File API / FileReader (import) — `lib/Importer.js`; Drag & Drop (`dataTransfer`) — `lib/FileDropzone.js`; Blob + `URL.createObjectURL` (export) — `lib/Exporter.js` |
 | Web Component | `<file-dropzone>` custom element with Shadow DOM and a `CustomEvent` bridge to React — `lib/FileDropzone.js` |
+
+## Documentation
+
+- [User Guide](docs/user-guide.md)
+- [Live Application](https://ondrej-diepolt.github.io/personal-budget-tracker/)
