@@ -251,6 +251,7 @@ header {
 .reset-table {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 2rem;
   padding-top: 1rem;
@@ -299,6 +300,7 @@ header {
   border-radius: 10px;
   border: 1px solid #F1F5F9;
   padding: 1.5rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -356,6 +358,7 @@ header {
   border-radius: 10px;
   border: 1px solid #F1F5F9; 
   padding: 2rem;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -415,5 +418,33 @@ header {
 
   .main-content {
     padding: 1rem;
+  }
+
+  .transaction-list {
+    padding: 1.25rem 1rem;
+  }
+
+  header {
+    padding: 0 1rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .add-transaction {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .reset-table {
+    justify-content: center;
+  }
+
+  .reset-table span {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: center;
   }
 }
