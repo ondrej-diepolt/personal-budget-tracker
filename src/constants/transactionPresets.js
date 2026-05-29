@@ -1,3 +1,8 @@
+// Sample transaction sets used by the "Reset to sample data" buttons in the UI.
+// Three sizes: SMALL (minimal example), MEDIUM (typical household), FULL (extensive list).
+// Each item is { id, type, name, category, amount } — the same shape that LocalStorage
+// and import/export use, so a preset can be loaded as the current state without conversion.
+
 export const PRESET_SMALL = [
   {
     id: 1,

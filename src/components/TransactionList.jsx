@@ -1,13 +1,21 @@
+// TransactionList — main editable view.
+// Renders the Income and Expenses tables (inline editing), data action buttons
+// (Export JSON / Export CSV, Reset to preset), and the <file-dropzone> web component
+// that handles drag & drop / click-to-browse import of JSON or CSV files.
 import { useEffect, useRef } from 'react'
 import TransactionRow from './TransactionRow'
 import { useBudget } from '../context/BudgetContext'
 import { PRESET_FULL, PRESET_MEDIUM, PRESET_SMALL } from '../constants/transactionPresets'
+// Side-effect import — running this module registers the <file-dropzone> custom element.
 import '../lib/FileDropzone'
 
 function TransactionList() {
   const { transactions, addExpense, addIncome, resetToPreset, exportFile, importFile } = useBudget()
   const dropzoneRef = useRef(null)
 
+  // Bridge between the <file-dropzone> web component and React.
+  // The component emits a 'file-selected' CustomEvent on drop or file pick;
+  // we listen for it on the element ref and forward the file to importFile().
   useEffect(() => {
     const el = dropzoneRef.current
     if (!el) return
@@ -16,9 +24,12 @@ function TransactionList() {
     return () => el.removeEventListener('file-selected', handler)
   }, [importFile])
 
+  // Split transactions into two groups so they can be rendered as separate tables.
   const income = transactions.filter(t => t.type === 'Income')
   const expenses = transactions.filter(t => t.type === 'Expense')
 
+  // Helper — renders a table with one TransactionRow per row.
+  // The index is passed down so each row can stagger its entrance animation.
   const renderTable = (rows) => (
     <table>
       <thead>
@@ -56,6 +67,7 @@ function TransactionList() {
         + Add Expense
       </button>
 
+      {/* Custom HTML element — handles drag & drop and click-to-browse for file import. */}
       <file-dropzone ref={dropzoneRef}></file-dropzone>
 
       <div className='reset-table'>

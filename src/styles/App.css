@@ -69,14 +69,14 @@ header {
   justify-content: space-between;
   border-bottom: 1px solid #E2E8F0;
 
-  h1 {
+  > h1 {
     font-size: 1.1rem;
     font-weight: 600;
     color: #4F46E5;
     letter-spacing: 0.01em;
   }
 
-  span {
+  > span {
     font-size: 0.9rem;
     color: #64748B;
   }
@@ -95,7 +95,7 @@ header {
   justify-content: space-between;
   margin-bottom: 1.5rem;
 
-  h2 {
+  > h2 {
     font-size: 1.25rem;
     font-weight: 600;
     color: #1E293B;
