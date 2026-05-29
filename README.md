@@ -8,12 +8,6 @@ of their spending (Needs / Wants / Savings), and can move data between devices
 via JSON / CSV export and import. Data is stored locally in the browser,
 separately for each month.
 
-## Goal
-
-Build a self-contained client-side budgeting tool that needs no backend: all
-state lives in the browser, all computation happens on the client, and the user
-can persist, transfer and restore their data without any server round-trip.
-
 ## Tech stack
 
 - **React 19 + Vite** — component architecture, dev server and production build
